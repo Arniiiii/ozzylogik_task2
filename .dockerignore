@@ -1,0 +1,10 @@
+build/
+.cache/
+.git/
+.github/
+compile_commands.json
+.dockerignore
+Dockerfile
+install_dir/
+*.csv
+*.db
