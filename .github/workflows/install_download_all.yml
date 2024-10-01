@@ -26,12 +26,6 @@ jobs:
           path: "**/cpm_modules"
           key: ${{ github.workflow }}-cpm-modules-${{ hashFiles('**/CMakeLists.txt', '**/*.cmake') }}
 
-
-      - name: Install Qt
-        uses: jurplel/install-qt-action@v4      
-        # with:
-        #   version: 6.7.*
-
       - name: build and install everything
         run: |
           cmake -S ./all -Bbuild -DCMAKE_BUILD_TYPE=Release -DCPM_DOWNLOAD_ALL=1 --log-level=DEBUG
