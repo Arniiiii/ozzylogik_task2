@@ -26,10 +26,17 @@ jobs:
           path: "**/cpm_modules"
           key: ${{ github.workflow }}-cpm-modules-${{ hashFiles('**/CMakeLists.txt', '**/*.cmake') }}
 
+      - name: install liburing-dev
+        run: |
+          sudo apt-get update
+          sudo apt-get -y install liburing-dev
+
+
       - name: build and install library
         run: |
           cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release --log-level=DEBUG
-          sudo cmake --build build --target install --verbose -j4
+          cmake --build build --target all --verbose -j $(nproc)
+          sudo cmake --install build --verbose
           rm -rf build
 
       - name: configure
