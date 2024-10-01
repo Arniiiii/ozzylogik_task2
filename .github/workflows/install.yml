@@ -31,9 +31,9 @@ jobs:
           sudo apt-get update
           sudo apt-get -y install liburing-dev
 
-      - name: build and install library
+      - name: build and install everything
         run: |
-          cmake -S./all -Bbuild -DCMAKE_BUILD_TYPE=Release --log-level=DEBUG
+          cmake -S ./all -Bbuild -DCMAKE_BUILD_TYPE=Release --log-level=DEBUG
           cmake --build build --target all --verbose -j $(nproc)
           cmake --install build --prefix ./install_dir
           rm -rf build

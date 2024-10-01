@@ -35,7 +35,7 @@ jobs:
         run: |
           cmake -S ./all -Bbuild -DCMAKE_BUILD_TYPE=Release -DCPM_DOWNLOAD_ALL=1 --log-level=DEBUG
           cmake --build build --target all -j$(nproc) --verbose
-          cmake --install ./build --prefix ./install_dir
+          cmake --install build --prefix ./install_dir
           rm -rf build
 
       - name: configure

@@ -75,8 +75,8 @@ if(LINUX)
   message(DEBUG "liburing_PREFIX: ${liburing_PREFIX}")
 
   if(${liburing_FOUND})
-    target_compile_options(${PROJECT_NAME} PRIVATE ${liburing_CFLAGS})
-    target_link_options(${PROJECT_NAME} PRIVATE ${liburing_LDFLAGS})
+    target_include_directories(${PROJECT_NAME} PRIVATE ${liburing_INCLUDE_DIRS})
+    target_link_libraries(${PROJECT_NAME} PRIVATE ${liburing_LIBRARIES})
     target_compile_definitions(
       ${PROJECT_NAME} PRIVATE BOOST_ASIO_HAS_IO_URING_AS_DEFAULT=1 BOOST_ASIO_HAS_IO_URING=1
     )
