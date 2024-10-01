@@ -110,6 +110,6 @@ packageProject(
     # cmake-format:off DO *NOT* divide this like to different lines. It will destroy a lot of stuff
     # related to making this project not only installable, but usable via
     # `find_package(the_project)`
-  DEPENDENCIES "fmtlog ${fmtlog_VERSION};csv ${csv_parser_VERSION};${QT_INSTALL_PACKAGEPROJECT}"
+  DEPENDENCIES "fmtlog ${fmtlog_VERSION};"
   # cmake-format:on
 )
