@@ -57,12 +57,8 @@ add_boost(TRY_BOOST_VERSION BOOST_HEADER_ONLY_COMPONENTS_THAT_YOU_NEED
 
 target_compile_definitions(${PROJECT_NAME} PRIVATE BOOST_ASIO_HAS_FILE=1)
 if(LINUX)
-  target_compile_definitions(
-    ${PROJECT_NAME} PRIVATE BOOST_ASIO_HAS_IO_URING_AS_DEFAULT=1 BOOST_ASIO_HAS_IO_URING=1
-  )
-
   find_package(PkgConfig REQUIRED)
-  pkg_check_modules(liburing REQUIRED liburing)
+  pkg_check_modules(liburing liburing)
 
   message(DEBUG "liburing_FOUND : ${liburing_FOUND}")
   message(DEBUG "liburing_LIBRARIES: ${liburing_LIBRARIES}")
@@ -78,8 +74,13 @@ if(LINUX)
   message(DEBUG "liburing_LIBDIR: ${liburing_LIBDIR}")
   message(DEBUG "liburing_PREFIX: ${liburing_PREFIX}")
 
-  target_compile_options(${PROJECT_NAME} PRIVATE ${liburing_CFLAGS})
-  target_link_options(${PROJECT_NAME} PRIVATE ${liburing_LDFLAGS})
+  if(${liburing_FOUND})
+    target_compile_options(${PROJECT_NAME} PRIVATE ${liburing_CFLAGS})
+    target_link_options(${PROJECT_NAME} PRIVATE ${liburing_LDFLAGS})
+    target_compile_definitions(
+      ${PROJECT_NAME} PRIVATE BOOST_ASIO_HAS_IO_URING_AS_DEFAULT=1 BOOST_ASIO_HAS_IO_URING=1
+    )
+  endif()
 endif()
 
 # ---- Create an installable target ----
