@@ -80,7 +80,7 @@ if(LINUX)
     target_compile_definitions(
       ${PROJECT_NAME} PRIVATE BOOST_ASIO_HAS_IO_URING_AS_DEFAULT=1 BOOST_ASIO_HAS_IO_URING=1
     )
-    set(liburing_PACKAGEPROJECT "liburing;")
+    set(liburing_PACKAGEPROJECT "liburing")
   endif()
 endif()
 
@@ -103,5 +103,5 @@ packageProject(
   BINARY_DIR ${PROJECT_BINARY_DIR}
   COMPATIBILITY "AnyNewerVersion" DISABLE_VERSION_SUFFIX ON
   DEPENDENCIES
-    "Task2 ${Task2_VERSION};cxxopts ${cxxopts_VERSION};fmt ${fmt_VERSION};constexpr-to-string ${constexpr-to-string_VERSION};magic_enum ${magic_enum_VERSION};fmtlog ${fmtlog_VERSION};${liburing_PACKAGEPROJECT}"
+    "Task2 ${Task2_VERSION};cxxopts ${cxxopts_VERSION};fmt ${fmt_VERSION};constexpr-to-string ${constexpr-to-string_VERSION};magic_enum ${magic_enum_VERSION};fmtlog ${fmtlog_VERSION};${liburing_PACKAGEPROJECT};"
 )
