@@ -65,6 +65,8 @@ Problems:
 5. fmt (MIT with exception for binary distribution)
 6. cxxopts (MIT)
 
+if you are building server on Linux, it seems that Boost Asio file-related parts require liburing.
+
 ## License
 
 I don't care about the code here, so for the code of this repository BSD-2.
