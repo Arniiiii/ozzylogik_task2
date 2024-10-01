@@ -31,12 +31,12 @@ jobs:
         run: cmake -Stest -Bbuild -DENABLE_TEST_COVERAGE=1 -DCMAKE_BUILD_TYPE=Debug --log-level=DEBUG
 
       - name: build
-        run: cmake --build build -j4 --verbose
+        run: cmake --build build -j $(nproc) --verbose
 
       - name: test
         run: |
           cd build
-          ctest --build-config Debug -j4
+          ctest --build-config Debug -j $(nproc)
 
       - name: collect code coverage
         run: bash <(curl -s https://codecov.io/bash) || echo "Codecov did not collect coverage reports"

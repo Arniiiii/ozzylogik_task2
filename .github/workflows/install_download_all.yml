@@ -34,7 +34,7 @@ jobs:
       - name: build and install everything
         run: |
           cmake -S ./all -Bbuild -DCMAKE_BUILD_TYPE=Release -DCPM_DOWNLOAD_ALL=1 --log-level=DEBUG
-          cmake --build build --target all -j4 --verbose
+          cmake --build build --target all -j$(nproc) --verbose
           cmake --install ./build --prefix ./install_dir
           rm -rf build
 
@@ -42,9 +42,9 @@ jobs:
         run: CMAKE_PREFIX_PATH="./install_dir" cmake -Stest -Bbuild -DTEST_INSTALLED_VERSION=1 -DCPM_DOWNLOAD_ALL=1 -DCPM_SOURCE_CACHE=~/.cache/cpm --log-level=DEBUG
 
       - name: build
-        run: cmake --build build --config Debug -j4 --verbose
+        run: cmake --build build --config Debug -j $(nproc) --verbose
 
       - name: test
         run: |
           cd build
-          ctest --build-config Debug -j4
+          ctest --build-config Debug -j $(nproc)

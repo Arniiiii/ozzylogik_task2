@@ -34,7 +34,7 @@ jobs:
         run: cmake -Sserver -Bbuild -DCMAKE_BUILD_TYPE=Debug --log-level=DEBUG
 
       - name: build
-        run: cmake --build build -j4 --verbose
+        run: cmake --build build -j $(nproc) --verbose
 
       - name: run
         run: ./build/Task2Server -h -v 4

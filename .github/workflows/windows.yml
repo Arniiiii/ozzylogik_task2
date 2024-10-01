@@ -33,9 +33,9 @@ jobs:
         run: cmake -Stest -Bbuild --log-level=DEBUG
 
       - name: build
-        run: cmake --build build --config Debug -j4 --verbose
+        run: cmake --build build --config Debug -j $(nproc) --verbose
 
       - name: test
         run: |
           cd build
-          ctest --build-config Debug -j4
+          ctest --build-config Debug -j $(nproc)
