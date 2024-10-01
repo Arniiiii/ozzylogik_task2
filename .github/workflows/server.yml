@@ -27,8 +27,8 @@ jobs:
       
       - name: install liburing-dev
         run: |
-          apt-get update
-          apt-get -y install liburing-dev
+          sudo apt-get update
+          sudo apt-get -y install liburing-dev
 
       - name: configure
         run: cmake -Sserver -Bbuild -DCMAKE_BUILD_TYPE=Debug --log-level=DEBUG
