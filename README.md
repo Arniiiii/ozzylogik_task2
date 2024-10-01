@@ -3,7 +3,8 @@
 [![Actions Status](https://github.com/Arniiiii/ozzylogik_task2/workflows/Ubuntu/badge.svg)](https://github.com/Arniiiii/ozzylogik_task2/actions)
 [![Actions Status](https://github.com/Arniiiii/ozzylogik_task2/workflows/Install/badge.svg)](https://github.com/Arniiiii/ozzylogik_task2/actions)
 [![Actions Status](https://github.com/Arniiiii/ozzylogik_task2/workflows/Install_CPM_DOWNLOAD_ALL/badge.svg)](https://github.com/Arniiiii/ozzylogik_task2/actions)
-[![Actions Status](https://github.com/Arniiiii/ozzylogik_task2/workflows/Standalone/badge.svg)](https://github.com/Arniiiii/ozzylogik_task2/actions)
+[![Actions Status](https://github.com/Arniiiii/ozzylogik_task2/workflows/Server/badge.svg)](https://github.com/Arniiiii/ozzylogik_task2/actions)
+[![Actions Status](https://github.com/Arniiiii/ozzylogik_task2/workflows/Client/badge.svg)](https://github.com/Arniiiii/ozzylogik_task2/actions)
 [![Actions Status](https://github.com/Arniiiii/ozzylogik_task2/workflows/Style/badge.svg)](https://github.com/Arniiiii/ozzylogik_task2/actions)
 
 # ozzylogik_task2

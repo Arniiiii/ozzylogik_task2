@@ -1,4 +1,4 @@
-name: Standalone
+name: Client
 
 on:
   push:
@@ -25,17 +25,11 @@ jobs:
           path: "**/cpm_modules"
           key: ${{ github.workflow }}-cpm-modules-${{ hashFiles('**/CMakeLists.txt', '**/*.cmake') }}
 
-
-      - name: Install Qt
-        uses: jurplel/install-qt-action@v4      
-        # with:
-        #   version: 6.7.*
-
       - name: configure
-        run: cmake -Sstandalone -Bbuild -DCMAKE_BUILD_TYPE=Debug --log-level=DEBUG
+        run: cmake -Sclinet -Bbuild -DCMAKE_BUILD_TYPE=Debug --log-level=DEBUG
 
       - name: build
         run: cmake --build build -j4 --verbose
 
       - name: run
-        run: ./build/Task2 -v 4
+        run: ./build/Task2Client -h -v 4
